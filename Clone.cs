@@ -58,17 +58,17 @@ namespace Clone_Utility_
             }
             if (string.IsNullOrEmpty(WebURL))
             {           
-                MessageBox.Show("Enter the Web URL for project to clone", "Empty Web URL" ,MessageBoxButtons.OK);
+                MessageBox.Show("Enter the Web URL for project to clone", "Empty Web URL" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if(string.IsNullOrEmpty(branchName))
             {
-                MessageBox.Show("Enter the Branch Name", "Empty Branch Name", MessageBoxButtons.OK);
+                MessageBox.Show("Enter the Branch Name", "Empty Branch Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
             if (!string.IsNullOrEmpty(pathToClone) && !string.IsNullOrEmpty(WebURL) && !string.IsNullOrEmpty(branchName))
             {
                 StartCloning(pathToClone, WebURL, branchName);
-                MessageBox.Show($"Project Cloned Successfully!", "Completed");
+                MessageBox.Show($"Project Cloned Successfully!", "Completed", MessageBoxButtons.OK);
             }
 
         }

@@ -35,6 +35,7 @@ namespace Clone_Utility_
             prc.Start();
             prc.WaitForExit();
             Console.WriteLine();
+            MessageBox.Show($"Project Cloned Successfully!", "Completed");
         }
 
         private void txtLocation_TextChanged(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace Clone_Utility_
                 Directory.CreateDirectory(pathToClone);
             }
             if (string.IsNullOrEmpty(WebURL))
-            {
+            {           
                 MessageBox.Show("Enter the Web URL for project to clone", "Empty Web URL" ,MessageBoxButtons.OK);
             }
             if(string.IsNullOrEmpty(branchName))
@@ -66,7 +67,6 @@ namespace Clone_Utility_
             }
 
             StartCloning(pathToClone, WebURL, branchName);
-            MessageBox.Show($"Project Cloned Successfully!", "Completed");
         }
 
         private void txtLocation_TextChanged_1(object sender, EventArgs e)

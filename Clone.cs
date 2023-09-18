@@ -35,7 +35,6 @@ namespace Clone_Utility_
             prc.Start();
             prc.WaitForExit();
             Console.WriteLine();
-            MessageBox.Show($"Project Cloned Successfully!", "Completed");
         }
 
         private void txtLocation_TextChanged(object sender, EventArgs e)
@@ -65,8 +64,13 @@ namespace Clone_Utility_
             {
                 MessageBox.Show("Enter the Branch Name", "Empty Branch Name", MessageBoxButtons.OK);
             }
+            
+            if (!string.IsNullOrEmpty(pathToClone) && !string.IsNullOrEmpty(WebURL) && !string.IsNullOrEmpty(branchName))
+            {
+                StartCloning(pathToClone, WebURL, branchName);
+                MessageBox.Show($"Project Cloned Successfully!", "Completed");
+            }
 
-            StartCloning(pathToClone, WebURL, branchName);
         }
 
         private void txtLocation_TextChanged_1(object sender, EventArgs e)

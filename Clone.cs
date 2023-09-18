@@ -50,7 +50,7 @@ namespace Clone_Utility_
 
             if (string.IsNullOrEmpty(pathToClone))
             {
-                pathToClone = @"C:\Portal\Cloned_Projects";
+                pathToClone = txtLocation.PlaceholderText;
             }
             if(!Directory.Exists(pathToClone))
             {
@@ -67,6 +67,16 @@ namespace Clone_Utility_
 
             StartCloning(pathToClone, WebURL, branchName);
             MessageBox.Show($"Project Cloned Successfully!", "Completed");
+        }
+
+        private void txtLocation_TextChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Clone_Load(object sender, EventArgs e)
+        {
+            txtWebURL.Select();
         }
     }
 }

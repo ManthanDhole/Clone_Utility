@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace Clone_Utility_
 {
@@ -15,9 +16,12 @@ namespace Clone_Utility_
         }
         public void StartCloning(string pathToClone, string webURL, string branchName)
         {
+            Regex pattern = new Regex("[;:/\\*$?><| ]");
+ 
             string command = $"git clone -b {branchName} {webURL}";
             Process prc;
-            string dateTime = (Convert.ToString(DateTime.Now)).Replace("/", "-").Replace(":", "-").Replace(" ", "_");
+            string dateTime = pattern.Replace((Convert.ToString(DateTime.Now)), "-");
+            branchName = pattern.Replace(branchName, "");
             string folderCreated = $"{branchName}-{dateTime}";
             var p = new ProcessStartInfo
             {
